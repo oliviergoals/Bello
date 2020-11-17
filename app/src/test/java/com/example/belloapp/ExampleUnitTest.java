@@ -1,4 +1,4 @@
-package com.example.doorbellapp;
+package com.example.belloapp;
 
 import org.junit.Test;
 
