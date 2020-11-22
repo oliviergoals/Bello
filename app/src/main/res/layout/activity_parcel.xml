@@ -1,6 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wallpaper2"
+    tools:context=".FullscreenActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+    <TextView
+        android:id="@+id/parcel_delivery_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:keepScreenOn="true"
+        android:layout_marginTop="220dp"
+        android:textColor="#fff"
+        android:text="@string/parcel_delivery_title"
+        android:fontFamily="@font/opensans_regular"
+        android:textSize="30dp"
+        />
+
+    <Button
+        android:id="@+id/delivery_qr_code"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/delivery_qr_code"
+        android:layout_gravity="center_horizontal"
+        android:drawableLeft="@drawable/qr_code"
+        android:layout_marginTop="310dp"
+        android:padding="20dp"
+        android:textColor="#fff"
+        android:textSize="18dp"
+        android:fontFamily="@font/opensans_bold"
+        android:background="@drawable/button_gradient_grey"
+        />
+
+    <Button android:id="@+id/delivery_pin"
+        android:layout_height="wrap_content"
+        android:text="@string/delivery_pin"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="300dp"
+        android:layout_marginTop="425dp"
+        android:textColor="#fff"
+        android:textSize="18dp"
+        android:fontFamily="@font/opensans_bold"
+        android:padding="30dp"
+        android:background="@drawable/button_gradient_grey"
+        />
+
+    <Button android:id="@+id/back_parcel"
+        android:layout_height="wrap_content"
+        android:text="back"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="170dp"
+        android:layout_marginTop="540dp"
+        android:textColor="#fff"
+        android:textSize="15dp"
+        android:fontFamily="@font/opensans_bold"
+        android:padding="10dp"
+        android:background="@drawable/button_gradient_blue"
+        />
+
+    <TextView
+        android:id="@+id/fullscreen_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:keepScreenOn="true"
+        android:textColor="#33b5e5"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:id="@+id/fullscreen_content_controls"
+            style="?metaButtonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="@color/black_overlay"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+            <!--            <Button-->
+            <!--                android:id="@+id/dummy_button"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="wrap_content" />-->
+
+        </LinearLayout>
+    </FrameLayout>
+
+</FrameLayout>

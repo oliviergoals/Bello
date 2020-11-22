@@ -3,23 +3,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0099cc"
-    tools:context=".FullscreenActivity">
+    android:background="@drawable/wallpaper"
 
-    <!-- The primary full-screen view. This can be replaced with whatever view
-         is needed to present your content, e.g. VideoView, SurfaceView,
-         TextureView, etc. -->
+    tools:context=".FullscreenActivity">
+        <AnalogClock
+            android:id="@+id/simpleAnalogClock"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="180dp"
+            android:scaleX="1.75"
+            android:scaleY="1.75"
+            />
+
+        <DigitalClock
+            android:id="@+id/simpleDigitalClock"
+            android:layout_gravity="center_horizontal"
+            android:textSize="50dp"
+            android:textColor="#fff"
+            android:fontFamily="@font/opensans_bold"
+            android:layout_marginTop="395dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- The primary full-screen view. This can be replaced with whatever view
+             is needed to present your content, e.g. VideoView, SurfaceView,
+             TextureView, etc. -->
+        <TextView
+            android:id="@+id/text_date_display"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:keepScreenOn="true"
+            android:layout_marginTop="460dp"
+            android:textColor="#19CDE4"
+            android:fontFamily="@font/opensans_regular"
+            android:textSize="30sp"
+            />
+
+        <Button
+            android:id="@+id/parcel_delivery"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="@string/parcel_delivery"
+            android:layout_gravity="center_horizontal"
+            android:drawableLeft="@drawable/delivery_man_1"
+            android:layout_marginTop="540dp"
+            android:padding="10dp"
+            android:textColor="#fff"
+            android:textSize="18dp"
+            android:fontFamily="@font/opensans_bold"
+            android:background="@drawable/button_gradient_blue"
+            />
+
+        <Button android:id="@+id/call_home"
+            android:layout_height="wrap_content"
+            android:text="@string/call_home"
+            android:layout_gravity="center_horizontal"
+            android:drawableLeft="@drawable/icon"
+            android:layout_width="300dp"
+            android:layout_marginTop="645dp"
+            android:textColor="#fff"
+            android:textSize="18dp"
+            android:fontFamily="@font/opensans_bold"
+            android:padding="12.5dp"
+            android:background="@drawable/button_gradient_green"
+            />
+
     <TextView
         android:id="@+id/fullscreen_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:keepScreenOn="true"
-        android:text="@string/dummy_content"
         android:textColor="#33b5e5"
         android:textSize="50sp"
         android:textStyle="bold" />
-
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
     <FrameLayout
@@ -37,13 +96,10 @@
             android:orientation="horizontal"
             tools:ignore="UselessParent">
 
-            <Button
-                android:id="@+id/dummy_button"
-                style="?metaButtonBarButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/dummy_button" />
+<!--            <Button-->
+<!--                android:id="@+id/dummy_button"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content" />-->
 
         </LinearLayout>
     </FrameLayout>

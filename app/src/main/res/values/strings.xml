@@ -1,6 +1,11 @@
 <resources>
-    <string name="app_name">BelloApp</string>
 
+    <string name="app_name">BelloApp</string>
+    <string name="parcel_delivery">Parcel Delivery</string>
+    <string name="parcel_delivery_title">Parcel Delivery</string>
+    <string name="delivery_qr_code">Delivery QR Code</string>
+    <string name="delivery_pin">Delivery Pin</string>
+    <string name="call_home">Call Home</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

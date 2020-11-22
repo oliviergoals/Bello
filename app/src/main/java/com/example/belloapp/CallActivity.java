@@ -1,4 +1,6 @@
 package com.example.belloapp;
 
-public class CallActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class CallActivity extends AppCompatActivity {
 }

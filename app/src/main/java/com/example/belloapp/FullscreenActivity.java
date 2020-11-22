@@ -5,10 +5,16 @@ import android.annotation.SuppressLint;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -25,13 +31,13 @@ public class FullscreenActivity extends AppCompatActivity {
      * If {@link #AUTO_HIDE} is set, the number of milliseconds to wait after
      * user interaction before hiding the system UI.
      */
-    private static final int AUTO_HIDE_DELAY_MILLIS = 3000;
+    private static final int AUTO_HIDE_DELAY_MILLIS = 10;
 
     /**
      * Some older devices needs a small delay between UI widget updates
      * and a change of the status and navigation bar.
      */
-    private static final int UI_ANIMATION_DELAY = 300;
+    private static final int UI_ANIMATION_DELAY = 10;
     private final Handler mHideHandler = new Handler();
     private View mContentView;
     private final Runnable mHidePart2Runnable = new Runnable() {
@@ -85,9 +91,16 @@ public class FullscreenActivity extends AppCompatActivity {
         }
     };
 
+    private Button parcelButton;
+    private Button callButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        TextView dateTimeDisplay;
+        Calendar calendar;
+        SimpleDateFormat dateFormat;
+        String date;
 
         setContentView(R.layout.activity_fullscreen);
 
@@ -95,6 +108,31 @@ public class FullscreenActivity extends AppCompatActivity {
         mControlsView = findViewById(R.id.fullscreen_content_controls);
         mContentView = findViewById(R.id.fullscreen_content);
 
+        calendar = Calendar.getInstance();
+        dateTimeDisplay = (TextView)findViewById(R.id.text_date_display);
+        dateFormat = new SimpleDateFormat("EEE, MMM d, ''yy");
+        date = dateFormat.format(calendar.getTime());
+        dateTimeDisplay.setText(date);
+
+
+        this.parcelButton = (Button)this.findViewById(R.id.parcel_delivery);
+        this.callButton = (Button)this.findViewById(R.id.call_home);
+
+        this.parcelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FullscreenActivity.this, ParcelActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        this.callButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FullscreenActivity.this, CallActivity.class);
+                startActivity(intent);
+            }
+        });
 
         // Set up the user interaction to manually show or hide the system UI.
         mContentView.setOnClickListener(new View.OnClickListener() {
@@ -107,7 +145,7 @@ public class FullscreenActivity extends AppCompatActivity {
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
-        findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
+        //findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
     }
 
     @Override
